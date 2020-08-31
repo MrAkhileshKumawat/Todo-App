@@ -20,8 +20,8 @@ exports.mytodos = (knex) => async (userEmail,req ,res,next)=>{
 
 exports.todos = (knex) => async(userEmail , req , res , next)=>{
     let pageSize=Number(req.query.pageSize)
-    let pageNum = Number(req.query.pageNum)+Number(pageSize)
-    console.log(pageNum)
+    let pageNum = Number(req.query.pageNum)*Number(pageSize)-pageSize
+    // console.log(pageNum)
     let assignedTo= await logic.assignedToQyery(req.query.assignedTo)
     let cityId = req.query.cityId
     // console.log(assignedTo)
